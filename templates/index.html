@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ResearchScope</title><link rel="stylesheet" href="/static/style.css"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head>
+<body>
+<header><b>RESEARCH<span>SCOPE</span></b><small>RESEARCH PAPER TOPIC MODELING</small><nav><a href="#discover">Discover</a><a href="#web">Web Papers</a><a href="#add">Add Paper</a></nav></header>
+<section class="hero"><div><label>NLP RESEARCH WORKBENCH</label><h1>Discover the hidden<br><i>structure of research.</i></h1><p>Analyze your research collection, compare topic models, track themes across years, and bring new papers directly from the web into your dataset.</p><a href="#discover">OPEN WORKSPACE ↓</a></div><aside><span>COLLECTION</span><strong id="count">{{count}}</strong><small>research papers</small></aside></section>
+<main>
+<section id="discover"><div class="head"><div><small>01 / TOPIC DISCOVERY</small><h2>What themes are inside?</h2></div><div class="slider">TOPICS <b id="tv">5</b><input id="topics" type="range" min="2" max="8" value="5"></div></div>
+<button onclick="run()">RUN MODEL</button><div class="grid"><div id="topicList"></div><div class="chart"><canvas id="dist"></canvas></div></div></section>
+<section><div class="head"><div><small>02 / TOPIC QUALITY</small><h2>Measure topic usefulness.</h2></div></div><div class="quality"><div class="score"><span>OVERALL QUALITY</span><strong id="overall">—</strong><small>coherence-style score</small></div><div id="qc"></div></div></section>
+<section><div class="head"><div><small>03 / TOPIC × YEAR</small><h2>See themes evolve.</h2></div></div><div id="heat" class="heat"></div></section>
+<section><div class="head"><div><small>04 / MODEL COMPARISON</small><h2>Find a sensible topic count.</h2></div></div><button class="orange" onclick="compare()">COMPARE 2–8 MODELS</button><div class="chart wide"><canvas id="compareChart"></canvas></div><p id="best" class="note"></p></section>
+<section id="web"><div class="head"><div><small>05 / WEB RESEARCH IMPORT</small><h2>Find papers online.</h2><p class="sub">Search Crossref by title, author, DOI or research topic. Select a result to add it to your collection.</p></div></div>
+<div class="websearch"><input id="webq" placeholder="e.g. transformer models for NLP"><button onclick="webSearch()">SEARCH WEB</button></div><div id="webResults"></div></section>
+<section id="add"><div class="head"><div><small>06 / DATASET</small><h2>Add and export research papers.</h2></div></div>
+<div class="addgrid"><form id="form"><input id="title" placeholder="Title *" required><input id="author" placeholder="Author"><input id="year" placeholder="Publication year *" type="number" required><input id="doi" placeholder="DOI"><input id="source" placeholder="Source"><textarea id="abstract" placeholder="Abstract *" required></textarea><button>ADD PAPER</button><p id="msg"></p></form>
+<div class="export"><h3>Your dataset</h3><p id="datasetCount">{{count}} papers</p><p>Add papers manually or use the web search. They are stored in the CSV used by the model.</p><a class="download" href="/download/excel">DOWNLOAD EXCEL (.XLSX)</a><small>The Excel export contains title, abstract, year, author, source and DOI. The workbook is generated from the current dataset.</small></div></div></section>
+<section><div class="head"><div><small>07 / PAPER EXPLORER</small><h2>Inspect papers by topic.</h2></div></div><div id="papers" class="papers">Run the model and select a topic.</div></section>
+</main><footer>RESEARCHSCOPE · PURE PYTHON LDA · WEB → DATASET → EXCEL</footer>
+<script src="/static/script.js"></script></body></html>
